@@ -1,0 +1,48 @@
+<div class="spinner" ng-show="loading">
+<div class="throbber" >
+    Loading...
+</div>
+</div>
+<div ng-hide="loading" style="height:100%;">
+<div class="topcoat-navigation-bar">
+<div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">{{city}}</h1>
+         <div id="date">{{date}}</div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="inner">
+        <div class="weather_info">
+        <div class="icon">
+            <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png"></img>
+        </div>
+        <div class="weather">
+        {{weather.main.temp}}&#176
+        </div>
+        <div class="desc">
+            <div class="text">
+                "{{weather.weather[0].description}}"
+             </div>
+             <div class="more">
+               <a ng-href="#{{city}}/detailed" ng-click="go()">(next 7 days forecast)</a>
+             </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="search-bar">
+    <form ng-submit="getCity()">
+    <input  ng-model="selCity" type="search" placeholder="search" class="topcoat-search-input search-key">
+    </form>
+</div>
+</div>
+<script>
+var now = dateFormat(new Date(), "dddd, mmmm dS, yyyy");
+     // Saturday, June 9th, 2007, 5:46:21 PM
+$('#date').append(now);
+</script>

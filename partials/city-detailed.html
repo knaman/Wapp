@@ -1,0 +1,40 @@
+<div class="spinner" ng-show="loading">
+<div class="throbber" >
+    Loading...
+</div>
+</div>
+<div ng-hide="loading" style="height:100%;">
+<div class="topcoat-navigation-bar">
+<div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">{{city}}</h1>
+         <div id="date">{{date}}</div>
+    </div>
+</div>
+<div class="topcoat-list__container scroller">
+    <ul class="topcoat-list list">
+        <li ng-repeat="each_day in weatherDetailed.list "class="topcoat-list__item">
+              <div class="left_side">
+              <div class="val_list">{{each_day.temp.day}}</div>
+              <div class="desc_list">{{each_day.weather[0].description}}</div>
+              </div>
+              <div class="list_icon">
+              <img ng-src="http://openweathermap.org/img/w/{{each_day.weather[0].icon}}.png"/>
+              </div>
+              <div class="right_side">
+              <div class="date_list">{{each_day.d_ate}}</div>
+               <div class="day">{{each_day.d_ay}}</div>   
+              </div>
+       </li>
+    </ul>
+</div>
+<script>
+var now = dateFormat(new Date(), "dddd, mmmm dS, yyyy");
+console.log(now);
+     // Saturday, June 9th, 2007, 5:46:21 PM
+$('#todayDate').append(now);
+</script>
